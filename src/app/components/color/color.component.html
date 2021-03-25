@@ -1,0 +1,24 @@
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item bg-light rounded-2 shadow overflow-hidden">
+      <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed rounded-top" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#flush-collapseTwo" 
+          aria-expanded="false" 
+          aria-controls="flush-collapseTwo">
+              Tüm Renkler
+          </button>
+      </h2>
+      <div id="flush-collapseTwo" 
+      class="accordion-collapse collapse" 
+      aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <li (click)="setCurrentColor(color)"
+              routerLink = "/cars/color/{{color.colorId}}" 
+              *ngFor="let color of colors" 
+              [class]="getCurrentColorClass(color)"
+              class="list bg-light shadow overflow-hidden list-hover"> {{color.colorName}} </li>
+      
+      </div>
+  </div>
+</div> 

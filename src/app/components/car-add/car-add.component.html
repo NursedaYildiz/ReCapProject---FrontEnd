@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="col-md-10 mx-auto my-3">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Araç Ekle</h5></div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+            <div class="mb-3">
+              <label for="brandId" class="col-sm-2 col-form-label"
+                >Marka Seç:</label
+              >
+              <select class="form-select" formControlName="brandId" aria-label="Default select example">
+                <option *ngFor="let brand of brands" [ngValue]="brand.brandId">
+                  {{ brand.brandName }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="carName" class="col-sm-2 col-form-label">Araç Adı :</label>
+              <div class="form-group">
+                  <input type="text" 
+                  id="carName" 
+                  formControlName="carName" class="form-control" 
+                  placeholder="Araç adı"/>
+              </div>
+          </div>
+            <div class="mb-3">
+              <label for="colorId" class="col-sm-2 col-form-label"
+                >Renk Seç:</label
+              >
+              <select class="form-select" formControlName="colorId">
+                <option *ngFor="let color of colors" [ngValue]="color.colorId">
+                  {{ color.colorName }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="modelYear">Model</label>
+              <input
+                type="text"
+                id="modelYear"
+                formControlName="modelYear"
+                class="form-control"
+                placeholder="Model Year"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dailyPrice">Günlük Fiyat</label>
+              <input
+                type="number"
+                id="dailyPrice"
+                formControlName="dailyPrice"
+                class="form-control"
+                placeholder="Daily Price"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="descriptions">Vites</label> 
+              <input
+                type="text"
+                id="descriptions"
+                formControlName="descriptions"
+                class="form-control"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="col-md-6 offset-md-6">
+            <button
+            style="float: right"
+            class="btn btn-primary rounded-1 col-6"
+            (click)="add()"
+          >
+            Ekle
+          </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>

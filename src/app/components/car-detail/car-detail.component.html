@@ -1,0 +1,71 @@
+<div class="back-btn detail-back-btn my-5" routerLink="/cars" style="top: 25px;">
+  <span>Geri Dön</span> <i class="bi bi-arrow-left"></i>
+</div>
+
+<div class="container-fluid container-md py-5 mb-5">
+  <div class="row ">
+
+    <div class="col-lg">
+  
+  
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  
+        <div class="carousel-inner">
+          <div *ngFor="let car of carimages" [class]="getCurrentImageClass(car)" data-bs-interval="3000" >
+            <img src="https://localhost:44384/{{ car.imagePath }}" class="d-block w-100" alt="{{ car.imagePath }}" />
+          </div>
+        </div>
+  
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+  
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button> -->
+  
+      </div>
+  
+    </div>
+  
+  
+  
+    <div class="card shadow col-lg my-5">
+      <div *ngFor="let carDetail of carDetails">
+        <div class="card-body">
+          <h3 class="card-title">
+            <strong> {{ carDetail.brandName }}</strong>
+          </h3>
+          <h5>
+            {{ carDetail.carName }}
+          </h5>
+          
+        </div>
+  
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">Model : {{ carDetail.modelYear }}</li>
+          <li class="list-group-item">Renk : {{ carDetail.colorName }}</li>          
+          <li class="list-group-item">Vites : {{ carDetail.descriptions }}</li>
+          <li class="list-group-item">
+            Fiyat : {{ carDetail.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"}}/Günlük
+          </li>
+        </ul>
+
+        
+  
+        <!-- <div class="card-body">
+          <button type="button" class="btn btn-primary d-grid gap-2 col-6">Kirala</button>
+        </div> -->
+      </div>
+      <div class="card-body">
+        <app-rental></app-rental>
+      </div>
+    </div>
+  </div> 
+
+</div>
+
+

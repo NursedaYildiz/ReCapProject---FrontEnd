@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../src/assets/fonts/Poppins/poppins.scss";
+
+$main-color: #00adb5;
+$dark: #2e3642;
+$light: #eeeeee;
+$soft: #212529e8;
+
+:host {
+    font-family: "Poppins" !important;
+}
+
+.btn-dark {
+    background-color: $dark !important;
+    border-color: $dark;
+}
+
+.btn-outline-dark {
+    border-color: $dark !important;
+    color: $dark;
+    
+    &:hover{
+        background-color: $dark;
+        color: $light;
+    }
+}
+
+.btn-primary {
+    background-color: $main-color !important;
+    border-color: $main-color !important;
+}
+
+.btn-outline-primary {
+    border-color: $main-color !important;
+    color: $main-color !important;
+
+    &:hover {
+        background-color: $main-color !important;
+        color: $light !important;
+    }
+}
+
+.bg-soft{
+    background-color: $soft !important;
+}
+
+.bg-light {
+    background: $light !important;
+    color: $dark !important;
+}
+
+.rounded-2 {
+    border-radius: 1rem !important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.text-primary {
+    color: #00adb5 !important;
+}
+
+.shadow {
+    box-shadow: 0 .3rem 1rem rgba(0,0,0,.15)!important;;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

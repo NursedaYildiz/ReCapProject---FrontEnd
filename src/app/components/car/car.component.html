@@ -1,0 +1,46 @@
+
+  
+
+
+<table *ngIf="dataLoaded == true" class="table bg-light rounded-2 shadow overflow-hidden table-hover">
+  
+
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Araç</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Model</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Vites</th>
+        <th scope="col">
+          <input type="text" [(ngModel)]="filterText" class="form-control shadow-sm" id="filterText" placeholder="Arama ifadesi giriniz...">
+        </th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let carDetail of carDetails | carFilter: filterText">
+        <td>{{ carDetail.carName }}</td>
+        <td>{{ carDetail.brandName }}</td>
+        <td>{{ carDetail.colorName }}</td>
+        <td>{{ carDetail.modelYear }}</td>
+        <td>{{ carDetail.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"}}/Günlük</td>
+        <td>{{ carDetail.descriptions }}</td>
+        <td>
+          <button class="btn btn-outline-primary rounded-2 w-100 btn-sm" routerLink="/carDetails/{{ carDetail.carId }}">
+          Detay
+          </button>
+        </td>
+        
+      </tr>   
+    </tbody>
+  
+</table>
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+.accordion-button{
+
+    &:not(.collapsed){
+        color: $light !important;
+        background-color: $main-color !important;
+        
+    }
+}

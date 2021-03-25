@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+.card {
+    border: none !important;
+    margin-left: 10rem !important;
+
+    &-header{
+        border-bottom: none !important;
+    }
+}
