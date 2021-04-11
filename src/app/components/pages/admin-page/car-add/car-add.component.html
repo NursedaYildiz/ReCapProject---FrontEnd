@@ -1,6 +1,9 @@
 <div class="container">
-    <div class="col-md-10 mx-auto my-3">
-      <div class="card">
+  <div class="back-btn detail-back-btn" routerLink="/admin/carsList" style="top: 25px;">
+    <span>Geri Dön</span> <i class="bi bi-arrow-left"></i>
+  </div>
+    <div class="col-md-10 mx-auto my-3 shadow overflow-hidden">
+      <div class="card bg-light">
         <div class="card-header"><h5 class="title">Araç Ekle</h5></div>
         <div class="card-body">
           <form [formGroup]="carAddForm">
@@ -11,7 +14,7 @@
               <select class="form-select" formControlName="brandId" aria-label="Default select example">
                 <option *ngFor="let brand of brands" [ngValue]="brand.brandId">
                   {{ brand.brandName }}
-                </option>
+                </option> 
               </select>
             </div>
             <div class="mb-3">
@@ -21,7 +24,19 @@
                   id="carName" 
                   formControlName="carName" class="form-control" 
                   placeholder="Araç adı"/>
-              </div>
+              </div> 
+              <small
+          *ngIf="carAddForm.get('carName')?.hasError('required')"
+          class="form-text text-muted"
+        >
+          Araç adı zorunludur
+        </small>
+        <small
+          *ngIf="carAddForm.get('carName')?.hasError('minlength')"
+          class="form-text text-muted"
+        >
+          Minimum 2 karakter olmalıdır
+        </small>
           </div>
             <div class="mb-3">
               <label for="colorId" class="col-sm-2 col-form-label"
@@ -36,7 +51,7 @@
             <div class="mb-3">
               <label for="modelYear">Model</label>
               <input
-                type="text"
+                type="number"
                 id="modelYear"
                 formControlName="modelYear"
                 class="form-control"
@@ -47,7 +62,7 @@
               <label for="dailyPrice">Günlük Fiyat</label>
               <input
                 type="number"
-                id="dailyPrice"
+                id="dailyPrice" 
                 formControlName="dailyPrice"
                 class="form-control"
                 placeholder="Daily Price"
@@ -68,7 +83,7 @@
           <div class="col-md-6 offset-md-6">
             <button
             style="float: right"
-            class="btn btn-primary rounded-1 col-6"
+            class="btn btn-dark rounded-1 col-6"
             (click)="add()"
           >
             Ekle

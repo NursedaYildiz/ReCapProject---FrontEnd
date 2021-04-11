@@ -48,30 +48,42 @@ export class CarAddComponent implements OnInit {
   createCarAddForm(){
     this.carAddForm = this.formBuilder.group({
       brandId: ["", Validators.required],
-      carName:["", Validators.required],
+      carName:["", [Validators.required, Validators.minLength(2)]],
       colorId: ["", Validators.required],
-      modelYear: ["", Validators.required],
+      modelYear: [0, [Validators.required, Validators.min(1950)]],
       descriptions: ["", Validators.required],
-      dailyPrice: ["", Validators.required]
+      dailyPrice: [0,[Validators.required, Validators.min(0)]]
     })
   }
 
-  add(){
+  add() {
     if (this.carAddForm.valid) {
-      let carModel = Object.assign({},this.carAddForm.value);
-      this.carService.add(carModel).subscribe(response=>{
-        this.toastr.success(response.message,"Info");
-      },responseError=>{
-        if (responseError.error.ValidationErrors.length>0) {
-          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-            this.toastr.error(responseError.error.ValidationErrors[i].ErrorMessage,"Validation Error")
-            this.errorMessages = responseError.error.ValidationErrors[i].ErrorMessage
+      let carModel = Object.assign({}, this.carAddForm.value);
+      this.carService.add(carModel).subscribe(
+        (response) => {
+          this.toastr.success(response.message, 'Başarılı!');
+        },
+        (responseError) => {
+          if (responseError.error.ValudationErrors.length > 0) {
+            for (
+              let i = 0;
+              i < responseError.error.ValudationErrors.length;
+              i++
+            ) {
+              this.toastr.error(
+                responseError.error.ValudationErrors[i].ErrorMessage,
+                'Doğrulama Hatası'
+              );
+            }
+            this.toastr.error(
+              responseError.error.ValudationErrors,
+              "Doğrulama Hatası"
+            );
           }
         }
-        console.log(responseError)
-      })
-    }else{
-      this.toastr.error("Form is invalid","Invalid")
+      );
+    } else {
+      this.toastr.error('Formunuz Eksik','Dikkat!')
     }
   }
 

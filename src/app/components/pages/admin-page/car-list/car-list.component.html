@@ -1,0 +1,58 @@
+<app-admin-navi></app-admin-navi>
+
+  <div class="back-btn detail-back-btn" routerLink="/admin" style="top: 25px;">
+    <span>Geri Dön</span> <i class="bi bi-arrow-left"></i>
+  </div>
+
+<div class="container">
+
+    <div class="d-flex mb-3">
+        <h5 class="fw-bold m-0">Araba Listesi</h5>
+        <button class="btn btn-dark ms-4" routerLink="add">
+            <i class="fas fa-plus"></i> Ekle
+        </button>
+    </div>
+    
+    <div class="bg-light rounded-2 shadow overflow-hidden table-hover mx-auto">
+        <table *ngIf="dataLoaded == true" class="table">
+  
+    <thead class="thead-dark">
+        
+        <tr>
+        <th scope="col">Araç</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Model</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Vites</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let carDetail of carDetails | carFilter: filterText">
+        <td>{{ carDetail.carName }}</td>
+        <td>{{ carDetail.brandName }}</td> 
+        <td>{{ carDetail.colorName }}</td>
+        <td>{{ carDetail.modelYear }}</td>
+        <td>{{ carDetail.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"}}/Günlük</td>
+        <td>{{ carDetail.descriptions }}</td>
+        <td>
+          <button class="btn btn-dark rounded-2 w-100 btn-sm" routerLink="cars/edit">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+        <td>
+            <button class="btn btn-primary rounded-2 w-100 btn-sm" routerLink="/carDetails/{{ carDetail.carId }}">
+                <i class="bi bi-trash"></i>
+            </button>
+          </td> 
+        
+      </tr>   
+    </tbody>
+  
+  </table>
+    </div>
+    
+</div>

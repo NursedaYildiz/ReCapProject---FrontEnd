@@ -1,9 +1,12 @@
 @import "../src/assets/fonts/Poppins/poppins.scss";
 
-$main-color: #00adb5;
-$dark: #2e3642;
+$main-color: #fac05c;
+$main-color-hover: #fac05cbe;
+$dark: #2a6c6d;
+$dark-hover: #2a6c6dd0;
 $light: #eeeeee;
-$soft: #212529e8;
+$soft: #2a6c6db7;
+$black: #000000d7;
 
 :host {
     font-family: "Poppins" !important;
@@ -12,6 +15,10 @@ $soft: #212529e8;
 .btn-dark {
     background-color: $dark !important;
     border-color: $dark;
+    &:hover {
+        background-color: $dark-hover !important;
+        border-color: transparent !important;
+    }
 }
 
 .btn-outline-dark {
@@ -27,6 +34,10 @@ $soft: #212529e8;
 .btn-primary {
     background-color: $main-color !important;
     border-color: $main-color !important;
+    &:hover {
+        background-color: $main-color-hover !important;
+        border-color: transparent !important;
+    }
 }
 
 .btn-outline-primary {
@@ -48,6 +59,11 @@ $soft: #212529e8;
     color: $dark !important;
 }
 
+.bg-dark {
+    background-color: $dark !important;
+    border-color: $dark;
+}
+
 .rounded-2 {
     border-radius: 1rem !important;
 }
@@ -64,5 +80,42 @@ $soft: #212529e8;
     box-shadow: 0 .3rem 1rem rgba(0,0,0,.15)!important;;
 }
 
+.table {
+    color: $black !important;
+}
+
+.back-btn {
+    position: absolute;
+    top: 103px;
+    left: 0;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #7e7e7e;
+    padding-left: 30px;
+    padding-right: 20px;
+    cursor: pointer; 
+    
+    &:hover{
+        text-decoration: none;
+    }
+}
+    .back-btn i {
+        border-left: 1px solid #e3e3e3;
+        margin-left: 10px;
+        padding-left: 12px;
+        color: #888888;
+        font-size: 16px;
+        height: 100%;
+        display: flex;
+        align-items: center; }
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }

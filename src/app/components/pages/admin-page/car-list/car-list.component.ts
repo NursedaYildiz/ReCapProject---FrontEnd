@@ -4,22 +4,21 @@ import { CarDetail } from 'src/app/models/carDetail';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.scss']
+  selector: 'app-car-list',
+  templateUrl: './car-list.component.html',
+  styleUrls: ['./car-list.component.scss']
 })
-export class CarComponent implements OnInit {
-
+export class CarListComponent implements OnInit {
+  
   carDetails: CarDetail[] = [];
   dataLoaded = false;
   filterText="";
-
+  
   constructor(
-      private carService: CarService,
-      private activatedRoute:ActivatedRoute) {}
+    private carService: CarService,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.activatedRoute.params.subscribe(params=>{
       
       if(params["brandId"]){

@@ -20,7 +20,13 @@ import { ToastrModule } from "ngx-toastr";
 import { RentalComponent } from './components/rental/rental.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentComponent } from './components/payment/payment.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarAddComponent } from './components/pages/admin-page/car-add/car-add.component';
+import { AdminPageComponent } from './components/pages/admin-page/admin-page.component';
+import { CarListComponent } from './components/pages/admin-page/car-list/car-list.component';
+import { CarEditComponent } from './components/pages/admin-page/car-edit/car-edit.component';
+import { BrandListComponent } from './components/pages/admin-page/brand-list/brand-list.component';
+import { AdminNaviComponent } from './components/pages/admin-page/admin-navi/admin-navi.component';
+import { ColorListComponent } from './components/pages/admin-page/color-list/color-list.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +44,12 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     RentalComponent,
     PaymentComponent,
     CarAddComponent,
+    AdminPageComponent,
+    CarListComponent,
+    CarEditComponent,
+    BrandListComponent,
+    AdminNaviComponent,
+    ColorListComponent,
   ],
   imports: [
     BrowserModule,
